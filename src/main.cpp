@@ -91,6 +91,9 @@ void autonomous()
     // Initialize a new odometry task
     pros::Task odometryTask(OdometryLoop, (void *)&state, TASK_PRIORITY_DEFAULT + 1, TASK_STACK_DEPTH_DEFAULT, "Odometry");
 
+    // Wait some time for the task to initialize
+    pros::delay(100);
+
     // Close the task after all autonomous functions are run
     odometryTask.remove();
 }
